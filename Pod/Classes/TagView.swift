@@ -19,8 +19,8 @@ public class TagView: UIView {
     public var dataSource : TagViewDataSource?
     public var delegate : TagViewDelegate?
     
-    public align : Align = .Center
-    public cellInsets : UIEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+    public var align : Align = .Center
+    public var cellInsets : UIEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
     
     var contentHeight : CGFloat = 0.0
     
