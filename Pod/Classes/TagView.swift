@@ -39,6 +39,8 @@ public class TagView: UIView {
     
     var contentHeight : CGFloat = 0.0
     
+    var tagViews : [TagViewCell] = []
+    
     override public func layoutSubviews() {
         super.layoutSubviews()
         
@@ -64,19 +66,25 @@ public class TagView: UIView {
         
     }
     
+    func selectTagAtIndex(index:Int) {
+        tagViews[index].selected = true
+    }
+    
+    func deselectTagAtIndex(index:Int) {
+        tagViews[index].selected = false        
+    }
+    
     func tapSelect (sender : UITapGestureRecognizer) {
      
         let loc = sender.locationInView(self)
         if let tagView  = self.hitTest(loc, withEvent: nil) as? TagViewCell {
             tagView.selected = !tagView.selected
             if tagView.selected {
-                delegate?.selectTagAtIndex(tagView.index)
+                delegate?.tagView(self, didSelectTagAtIndex: tagView.index)
             } else {
-                delegate?.deselectTagAtIndex(tagView.index)
+                delegate?.tagView(self, didDeselectTagAtIndex: tagView.index)
             }
         }
-
-        
     }
     
     public func reloadData() {
@@ -90,16 +98,15 @@ public class TagView: UIView {
             subview.removeFromSuperview()
         }
         
+        tagViews = []
+        
         guard let dataSource = dataSource else {
             contentHeight = 0
             invalidateIntrinsicContentSize()
             return
         }
         
-        
         let selfWidth = intrinsicContentSize().width
-        
-
         
         var rows : [[TagViewCell]] = []
         var rowsWidth : [CGFloat] = []
@@ -117,6 +124,9 @@ public class TagView: UIView {
         
         for i in 0...numberOfTags - 1 {
             let cell = dataSource.tagCellForTagView(self, index: i)
+            
+            tagViews.append(cell)
+            
             let size = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
 
             cell.frame = CGRectMake(0, 0, size.width, dataSource.heightOfTag(self))
