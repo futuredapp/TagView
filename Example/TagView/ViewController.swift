@@ -8,6 +8,7 @@
 
 
 import UIKit
+import TagView
 
 class ViewController: UIViewController, TagViewDataSource, UITableViewDataSource {
     

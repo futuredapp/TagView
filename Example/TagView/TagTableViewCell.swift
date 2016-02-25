@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import TagView
 
 class TagTableViewCell : UITableViewCell {
 

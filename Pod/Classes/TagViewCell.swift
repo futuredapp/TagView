@@ -134,7 +134,7 @@ public class TagViewCell: UIView {
             self.addConstraints(horizontalConstraints)
             //self.addConstraints(verticalConstraints)
             self.addConstraints([centerY,height])
-            
+            self.tagLabel.layoutMargins = UIEdgeInsets(top: 0,left: 10,bottom: 0,right: 10)
         }
         
         

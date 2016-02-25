@@ -8,14 +8,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TagTableViewCell" id="4dJ-2u-NLA" customClass="TagTableViewCell" customModule="TagView" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TagTableViewCell" id="4dJ-2u-NLA" customClass="TagTableViewCell" customModule="TagView_Example" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="497" height="365"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4dJ-2u-NLA" id="XVN-vK-ujH">
                 <rect key="frame" x="0.0" y="0.0" width="497" height="364.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pd9-Wh-aH7" customClass="TagView" customModule="TagView" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pd9-Wh-aH7" customClass="TagView" customModule="TagView">
                         <rect key="frame" x="58" y="0.0" width="381" height="365"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

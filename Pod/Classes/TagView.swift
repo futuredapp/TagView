@@ -10,10 +10,25 @@ import UIKit
 
 public class TagView: UIView {
 
-    enum Align {
+    public enum Align {
         case Center
         case Left
         case Right
+    }
+    
+    var tapRecognizer : UITapGestureRecognizer?
+    
+    public var selectionEnabled : Bool = false {
+        didSet {
+            
+            if selectionEnabled {
+                self.addGestureRecognizer(tapRecognizer!)
+            } else {
+                self.removeGestureRecognizer(tapRecognizer!)
+            }
+            
+
+        }
     }
     
     public var dataSource : TagViewDataSource?
@@ -43,13 +58,15 @@ public class TagView: UIView {
     }
     
     func configure() {
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "tapSelect:"))
+        tapRecognizer =  UITapGestureRecognizer(target: self, action: "tapSelect:")
+        selectionEnabled = false
+            
+        
     }
     
     func tapSelect (sender : UITapGestureRecognizer) {
      
-//        for view in subviews {
-           var loc = sender.locationInView(self)
+        let loc = sender.locationInView(self)
         if let tagView  = self.hitTest(loc, withEvent: nil) as? TagViewCell {
             tagView.selected = !tagView.selected
             if tagView.selected {
@@ -58,7 +75,7 @@ public class TagView: UIView {
                 delegate?.deselectTagAtIndex(tagView.index)
             }
         }
-  //      }
+
         
     }
     
@@ -71,6 +88,8 @@ public class TagView: UIView {
         
         
         guard let dataSource = dataSource else {
+            contentHeight = 0
+            invalidateIntrinsicContentSize()
             return
         }
         
