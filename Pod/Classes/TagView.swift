@@ -66,11 +66,11 @@ public class TagView: UIView {
         
     }
     
-    func selectTagAtIndex(index:Int) {
+    public func selectTagAtIndex(index:Int) {
         tagViews[index].selected = true
     }
     
-    func deselectTagAtIndex(index:Int) {
+    public func deselectTagAtIndex(index:Int) {
         tagViews[index].selected = false        
     }
     
