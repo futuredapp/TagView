@@ -122,13 +122,10 @@ public class TagViewCell: UIView {
             let views = ["label": self.tagLabel]
             
             let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[label]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views)
-            //let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-[label(22)]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views)
-
-            let centerY = NSLayoutConstraint(item: self.tagLabel, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1.0, constant: -1)
+     
+            let centerY = NSLayoutConstraint(item: self.tagLabel, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1.0, constant: 0)
             height = NSLayoutConstraint(item: self, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: 38)
-            //let center = NSLayoutConstraint(item: self.tagLabel, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1.0, constant: 0)
-           // let top = NSLayoutConstraint(item: self.tagLabel, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1.0, constant: 30)
-            //let bottom = NSLayoutConstraint(item: self.tagLabel, attribute: .Bottom, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1.0, constant: 30)
+     
             
             
             self.addConstraints(horizontalConstraints)

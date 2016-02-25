@@ -86,6 +86,9 @@ public class TagView: UIView {
         var y : CGFloat = 0
         var line = 0
         
+        for subview in subviews {
+            subview.removeFromSuperview()
+        }
         
         guard let dataSource = dataSource else {
             contentHeight = 0
@@ -96,9 +99,7 @@ public class TagView: UIView {
         
         let selfWidth = intrinsicContentSize().width
         
-        for subview in subviews {
-            subview.removeFromSuperview()
-        }
+
         
         var rows : [[TagViewCell]] = []
         var rowsWidth : [CGFloat] = []
@@ -106,7 +107,14 @@ public class TagView: UIView {
         
         
         var currentLineWidth : CGFloat = 0
-        let numberOfTags = dataSource.numberOfTags(self) ?? 0
+        let numberOfTags = dataSource.numberOfTags(self)
+        
+        if numberOfTags == 0 {
+            contentHeight = 0
+            invalidateIntrinsicContentSize()
+            return
+        }
+        
         for i in 0...numberOfTags - 1 {
             let cell = dataSource.tagCellForTagView(self, index: i)
             let size = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)

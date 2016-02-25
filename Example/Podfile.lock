@@ -1,0 +1,21 @@
+PODS:
+  - FBSnapshotTestCase (2.0.7):
+    - FBSnapshotTestCase/SwiftSupport (= 2.0.7)
+  - FBSnapshotTestCase/Core (2.0.7)
+  - FBSnapshotTestCase/SwiftSupport (2.0.7):
+    - FBSnapshotTestCase/Core
+  - TagView (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - TagView (from `../`)
+
+EXTERNAL SOURCES:
+  TagView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 7e85180d0d141a0cf472352edda7e80d7eaeb547
+  TagView: d199412ace1011cc3312bc12f4b98fe2acc4436e
+
+COCOAPODS: 0.39.0
