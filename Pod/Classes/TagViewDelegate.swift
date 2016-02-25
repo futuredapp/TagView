@@ -10,7 +10,7 @@ import Foundation
 
 public protocol TagViewDelegate {
     
-    func tagView(tagView :TagView, didSelectTagAtIndex : Int)
-    func tagView(tagView :TagView, didDeselectTagAtIndex : Int)
+    func tagView(tagView :TagView, didSelectTagAtIndex index : Int)
+    func tagView(tagView :TagView, didDeselectTagAtIndex index : Int)
     
 }
