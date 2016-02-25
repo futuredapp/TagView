@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'TagView_Example', :exclusive => true do
+  pod 'TagView', :path => '../'
+end
+
+target 'TagView_Tests', :exclusive => true do
+  pod 'TagView', :path => '../'
+
+  pod 'FBSnapshotTestCase'
+end
