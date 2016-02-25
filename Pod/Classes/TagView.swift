@@ -9,7 +9,7 @@
 import UIKit
 
 public class TagView: UIView {
-
+    
     public enum Align {
         case Center
         case Left
@@ -21,13 +21,15 @@ public class TagView: UIView {
     public var selectionEnabled : Bool = false {
         didSet {
             
+            
+            
             if selectionEnabled {
                 self.addGestureRecognizer(tapRecognizer!)
             } else {
                 self.removeGestureRecognizer(tapRecognizer!)
             }
             
-
+            
         }
     }
     
@@ -62,7 +64,7 @@ public class TagView: UIView {
     func configure() {
         tapRecognizer =  UITapGestureRecognizer(target: self, action: "tapSelect:")
         selectionEnabled = false
-            
+        
         
     }
     
@@ -75,7 +77,11 @@ public class TagView: UIView {
     }
     
     func tapSelect (sender : UITapGestureRecognizer) {
-     
+        
+        if (sender.state != .Ended) {
+            return
+        }
+        
         let loc = sender.locationInView(self)
         if let tagView  = self.hitTest(loc, withEvent: nil) as? TagViewCell {
             tagView.selected = !tagView.selected
@@ -88,8 +94,8 @@ public class TagView: UIView {
     }
     
     public func reloadData() {
-    
-
+        
+        
         
         var y : CGFloat = 0
         var line = 0
@@ -128,10 +134,10 @@ public class TagView: UIView {
             tagViews.append(cell)
             
             let size = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
-
+            
             cell.frame = CGRectMake(0, 0, size.width, dataSource.heightOfTag(self))
             cell.height.constant = dataSource.heightOfTag(self)
-            cell.index = -1
+            cell.index = i
             var tagWidth = cell.frame.size.width
             tagWidth += cellInsets.left + cellInsets.right
             
@@ -145,7 +151,7 @@ public class TagView: UIView {
             }
             
             if i == numberOfTags - 1 || fullLine {
-             //   self.addLine(line, cells: currentLine, currentLineWidth : currentLineWidth)
+                //   self.addLine(line, cells: currentLine, currentLineWidth : currentLineWidth)
                 rows.append(currentLine)
                 rowsWidth.append(currentLineWidth)
                 
@@ -166,7 +172,7 @@ public class TagView: UIView {
         if currentLine.count > 0 {
             rows.append(currentLine)
             rowsWidth.append(currentLineWidth)
-          //  self.addLine(line, cells: currentLine, currentLineWidth : currentLineWidth)
+            //  self.addLine(line, cells: currentLine, currentLineWidth : currentLineWidth)
             
         } 
         
@@ -205,18 +211,15 @@ public class TagView: UIView {
             addCell.frame = CGRectOffset(addCell.frame, lastFrame.size.width + lastFrame.origin.x + cellInsets.left, y)
             self.addSubview(addCell)
             
-        //    print("lastFrame = \(lastFrame), addCell = \(addCell.frame), text = \(addCell.tagLabel.text)")
             lastFrame = CGRectOffset(addCell.frame,  cellInsets.right, 0)
         }
         
         
     }
-
+    
     override public func invalidateIntrinsicContentSize() {
         super.invalidateIntrinsicContentSize()
-        //self.reloadData()
-    
-    
+        
     }
     
     override public func intrinsicContentSize() -> CGSize {
@@ -225,11 +228,10 @@ public class TagView: UIView {
         let bottomMost = self.findBottomMost()
         height = bottomMost.origin.y + cellInsets.bottom + bottomMost.size.height 
         
-        print("tagView = \(height)")
         return CGSizeMake(frame.width, contentHeight)
     }
     
- 
+    
     private func findBottomMost() -> CGRect {
         
         var bottomMost = CGRectZero
@@ -242,5 +244,5 @@ public class TagView: UIView {
         return bottomMost
     }
     
-
+    
 }
