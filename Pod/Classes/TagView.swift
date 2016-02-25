@@ -16,12 +16,14 @@ public class TagView: UIView {
         case Right
     }
     
-    var dataSource : TagViewDataSource?
-     var delegate : TagViewDelegate?
+    public var dataSource : TagViewDataSource?
+    public var delegate : TagViewDelegate?
     
-    var align : Align = .Center
-    var cellInsets : UIEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+    public align : Align = .Center
+    public cellInsets : UIEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+    
     var contentHeight : CGFloat = 0.0
+    
     override public func layoutSubviews() {
         super.layoutSubviews()
         
