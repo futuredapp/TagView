@@ -22,7 +22,7 @@ public class TagView: UIView {
     var align : Align = .Center
     var cellInsets : UIEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
     var contentHeight : CGFloat = 0.0
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         reloadData()
@@ -30,12 +30,12 @@ public class TagView: UIView {
     }
     
     
-    required  init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configure()
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
@@ -60,7 +60,7 @@ public class TagView: UIView {
         
     }
     
-    func reloadData() {
+    public func reloadData() {
     
 
         
@@ -173,14 +173,14 @@ public class TagView: UIView {
         
     }
 
-    override func invalidateIntrinsicContentSize() {
+    override public func invalidateIntrinsicContentSize() {
         super.invalidateIntrinsicContentSize()
         //self.reloadData()
     
     
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override public func intrinsicContentSize() -> CGSize {
         var height : CGFloat = 0
         
         let bottomMost = self.findBottomMost()
