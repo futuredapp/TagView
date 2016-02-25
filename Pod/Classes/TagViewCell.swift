@@ -16,14 +16,14 @@ public class TagViewCell: UIView {
     var index : Int = -1
     var height : NSLayoutConstraint!
 
-    override var frame : CGRect {
+    override public var frame : CGRect {
         didSet {
             self.layer.cornerRadius = CGRectGetHeight(frame) / 2
             self.layer.masksToBounds = true   
         }
     }
     
-    var notSelectedFont : UIFont = UIFont.systemFontOfSize(17) {
+    public var notSelectedFont : UIFont = UIFont.systemFontOfSize(17) {
         willSet(font) {
             
             if (!selected) {
@@ -35,7 +35,7 @@ public class TagViewCell: UIView {
         
     }
     
-    var notSelectedFontColor : UIColor = UIColor.blueColor() {
+    public var notSelectedFontColor : UIColor = UIColor.blueColor() {
         willSet(color) {
             if (!selected) {
                 self.tagLabel!.textColor = color
@@ -45,7 +45,7 @@ public class TagViewCell: UIView {
     }
     
     
-    var notSelectedColor : UIColor = UIColor.greenColor() {
+    public var notSelectedColor : UIColor = UIColor.greenColor() {
         willSet(color) {
             if (!selected) {
                 self.backgroundColor = color
@@ -53,13 +53,13 @@ public class TagViewCell: UIView {
         }
     }
     
-    var notSelectedBorderColor : UIColor? {
+    public var notSelectedBorderColor : UIColor? {
         didSet(color) {
             setBorders(selected)
         }
     }
     
-    var selectedFont : UIFont = UIFont.systemFontOfSize(17) {
+    public var selectedFont : UIFont = UIFont.systemFontOfSize(17) {
         willSet(font) {
             if (selected) {
                 self.tagLabel!.font = font
@@ -69,14 +69,14 @@ public class TagViewCell: UIView {
         
     }
     
-    var selectedFontColor : UIColor = UIColor.grayColor() {
+    public var selectedFontColor : UIColor = UIColor.grayColor() {
         willSet(color) {
             if (selected) {
                 self.tagLabel!.textColor = color
             }
         }
     }
-    var selectedColor : UIColor = UIColor.darkGrayColor() {
+    public var selectedColor : UIColor = UIColor.darkGrayColor() {
         willSet(color) {
             if (selected) {
                 self.backgroundColor = color
@@ -84,7 +84,7 @@ public class TagViewCell: UIView {
         }
     }
     
-    var selectedBorderColor : UIColor? {
+    public var selectedBorderColor : UIColor? {
         willSet(color) {
             setBorders(selected)
         }
@@ -92,13 +92,13 @@ public class TagViewCell: UIView {
     
         // MARK: - Life cycle
         
-        override init(frame: CGRect) {
+        override public init(frame: CGRect) {
             super.init(frame: frame)
             self.commonInit()
             
         }
         
-        required init?(coder aDecoder: NSCoder) {
+        required public init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
             self.commonInit()
         }
@@ -138,7 +138,7 @@ public class TagViewCell: UIView {
         }
         
         
-        var selected : Bool = false {
+        public var selected : Bool = false {
             willSet(selected) {
                 if (selected) {
                     self.tagLabel!.font = selectedFont
@@ -187,7 +187,7 @@ public class TagViewCell: UIView {
         }
         
         
-        func setText(text:String) {
+        public func setText(text:String) {
             tagLabel.text = text
          //   tagLabel.layoutIfNeeded()
         }
