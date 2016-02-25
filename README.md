@@ -22,7 +22,7 @@ pod "TagView"
 
 ## Author
 
-Martin Pinka, pinka@master.cz
+Martin Pinka, pinka.martin@gmail.com
 
 ## License
 

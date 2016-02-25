@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## TagView
 
-Copyright (c) 2016 Martin Pinka <pinka@master.cz>
+Copyright (c) 2016 Martin Pinka <pinka.martin@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
