@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol TagViewDataSource {
+public protocol TagViewDataSource {
     
     func numberOfTags(tagView:TagView) -> Int
     func tagCellForTagView(tagView:TagView, index: Int) -> TagViewCell

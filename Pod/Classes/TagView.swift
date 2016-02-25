@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TagView: UIView {
+public class TagView: UIView {
 
     enum Align {
         case Center

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TagViewCell: UIView {
+public class TagViewCell: UIView {
 
 
     var tagLabel: UILabel!

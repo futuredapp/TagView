@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TagViewDelegate {
+public protocol TagViewDelegate {
     
     func selectTagAtIndex(index : Int)
     func deselectTagAtIndex(index : Int)
