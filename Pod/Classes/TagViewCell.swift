@@ -11,7 +11,7 @@ import UIKit
 public class TagViewCell: UIView {
 
 
-    var tagLabel: UILabel!
+    public var tagLabel: UILabel!
     var customConstraints: [NSLayoutConstraint] = []
     var index : Int = -1
     var height : NSLayoutConstraint!
