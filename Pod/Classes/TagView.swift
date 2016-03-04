@@ -166,7 +166,7 @@ public class TagView: UIView, UIScrollViewDelegate {
             let newPageHeight = (dataSource.heightOfTag(self) + self.cellInsets.top + cellInsets.bottom) * (CGFloat(newRowCount) )
             
             if let maxAllowedRows = self.maxAllowedRows where newRowCount > Int(maxAllowedRows) {
-                //                        print("pageRows=\(pageRows) > maxAllowedRows=\(maxAllowedRows)")
+
                 return true
             } else if let maxAllowedHeight = self.maxAllowedHeight where Float(newPageHeight) > maxAllowedHeight {
                 return true
@@ -183,9 +183,8 @@ public class TagView: UIView, UIScrollViewDelegate {
         }
         
         for i in 0..<numberOfTags {
-            print("processing cell at index=\(i)...")
+
             let cell = dataSource.tagCellForTagView(self, index: i)
-            
             tagViews.append(cell)
             
             let size = cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
@@ -212,7 +211,6 @@ public class TagView: UIView, UIScrollViewDelegate {
                     addNewPage()
                 }
                 
-                print("appending line=\(pages[currentPageIndex].count) with \(currentLine.count) cells to page=\(currentPageIndex), ")
                 pages[currentPageIndex].append(currentLine)
                 rowsWidth[currentPageIndex].append(currentLineWidth)
                 
@@ -237,10 +235,7 @@ public class TagView: UIView, UIScrollViewDelegate {
             
             // we're done, finish off by adding the last row
             pages[currentPageIndex].append(currentLine)
-//            rows.append(currentLine)
             rowsWidth[currentPageIndex].append(currentLineWidth)
-//  self.addLine(line, cells: currentLine, currentLineWidth : currentLineWidth)
-            
         }
         
         // Add all pages of rows of cell views to this view
@@ -257,7 +252,6 @@ public class TagView: UIView, UIScrollViewDelegate {
         
         
         numberOfPages = pages.count
-//        print("did reloadData - numberOfpages: \(numberOfPages)")
         if numberOfPages > 1 {
             showPageControl(withPageCount: numberOfPages)
         } else {
@@ -315,8 +309,6 @@ public class TagView: UIView, UIScrollViewDelegate {
         
         if (previousPage != currentPage) {
             previousPage = currentPage
-            
-//            bubbleDelegate?.bubbleTagView(self, didChangeCurrentPage: UInt(currentPage))
             pageControl.currentPage = currentPage
         }
     }
@@ -337,16 +329,12 @@ public class TagView: UIView, UIScrollViewDelegate {
     override public func intrinsicContentSize() -> CGSize {
         var height: CGFloat = contentHeight
         
-//        let bottomMost = self.findBottomMost()
-//        height = bottomMost.origin.y + cellInsets.bottom + bottomMost.size.height
-        
         // Add extra space for page control
         if /*let pcHeight = pageControl.frame.height where*/ pageControl.hidden == false {
             height += pageControl.frame.height //pcHeight
         }
         
         let size = CGSizeMake(frame.width, height)
-//        print("didChangeIntristicContentSize: \(size)")
         return size
     }
     
