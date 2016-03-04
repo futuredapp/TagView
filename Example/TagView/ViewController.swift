@@ -71,6 +71,7 @@ class ViewController: UIViewController, TagViewDataSource, UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(TagTableViewCell.reuseIdentifier) as! TagTableViewCell
+        cell.tagView.maxAllowedRows = 2
         cell.tagView.dataSource = self
         cell.tagView.reloadData()
         
