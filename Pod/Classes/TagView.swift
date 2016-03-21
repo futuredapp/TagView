@@ -43,6 +43,12 @@ public class TagView: UIView, UIScrollViewDelegate {
     var contentView = UIScrollView()
     var contentViewToBottomConstraint: NSLayoutConstraint!
     
+    public var enabledScrolling : Bool = true {
+        didSet {
+            contentView.enabledScrolling = enabledScrolling
+        }
+    }
+        
     /// UIPageControl is added to superview on-demand in `showPageControl:` method
     private(set) public var pageControl = UIPageControl()
     private let kPageControlHeight: CGFloat = 15.0
