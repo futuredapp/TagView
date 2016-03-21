@@ -146,6 +146,7 @@ public class TagView: UIView, UIScrollViewDelegate {
         tagViews = []
         
         guard let dataSource = dataSource else {
+            self.contentView.contentSize = CGSizeZero
             invalidateIntrinsicContentSize()
             return
         }
@@ -163,6 +164,7 @@ public class TagView: UIView, UIScrollViewDelegate {
         let numberOfTags = dataSource.numberOfTags(self)
         
         if numberOfTags == 0 {
+            self.contentView.contentSize = CGSizeZero
             invalidateIntrinsicContentSize()
             return
         }
