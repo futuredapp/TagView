@@ -45,7 +45,7 @@ public class TagView: UIView, UIScrollViewDelegate {
     
     public var enabledScrolling : Bool = true {
         didSet {
-            contentView.enabledScrolling = enabledScrolling
+            self.contentView.scrollEnabled = enabledScrolling
         }
     }
         
