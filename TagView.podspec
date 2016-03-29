@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "TagView"
   s.version          = "0.2.1"
-  s.summary          = "A short description of TagView."
+  s.summary          = "TagView allows you to texts in separate bubbles show short text" 
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -20,11 +20,11 @@ Pod::Spec.new do |s|
 View that allows you to show text in bubbles (e.g. hashtags). It supports paging, and vertical alignment.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/TagView"
+  s.homepage         = "https://github.com/thefuntasty/TagView"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Martin Pinka" => "pinka.martin@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/TagView.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/thefuntasty/TagView.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '8.0'
