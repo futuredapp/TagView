@@ -88,7 +88,7 @@ public class TagView: UIView, UIScrollViewDelegate {
     }
     
     func configure() {
-        tapRecognizer =  UITapGestureRecognizer(target: self, action: "tapSelect:")
+        tapRecognizer =  UITapGestureRecognizer(target: self, action: #selector(TagView.tapSelect(_:)))
         selectionEnabled = false
         
         contentView.pagingEnabled = true
@@ -184,7 +184,7 @@ public class TagView: UIView, UIScrollViewDelegate {
         }
         
         func addNewPage() {
-            currentPageIndex++
+            currentPageIndex += 1
             pages.append([])
             rowsWidth.append([])
             y = 0
@@ -225,7 +225,7 @@ public class TagView: UIView, UIScrollViewDelegate {
                 
                 currentLine = []
                 currentLineWidth = 0
-                line++
+                line += 1
             }
             
             if fullLine {
@@ -351,7 +351,7 @@ public class TagView: UIView, UIScrollViewDelegate {
     
     private func showPageControl(withPageCount pageCount: Int) {
         if pageControl.superview == nil {
-            pageControl.addTarget(self, action: Selector("changePage:"), forControlEvents: UIControlEvents.ValueChanged)
+            pageControl.addTarget(self, action: #selector(TagView.changePage(_:)), forControlEvents: UIControlEvents.ValueChanged)
             self.addSubview(pageControl)
             
             // Autolayout

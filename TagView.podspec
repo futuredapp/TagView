@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "TagView"
-  s.version          = "0.2.0"
+  s.version          = “0.2.1”
   s.summary          = "A short description of TagView."
 
 # This description is used to generate tags and improve search results.
@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+View that allows you to show text in bubbles (e.g. hashtags). It supports paging, and vertical alignment.
                        DESC
 
   s.homepage         = "https://github.com/<GITHUB_USERNAME>/TagView"
